@@ -36,7 +36,7 @@ EXPOSE $PORT
 
 # Setup output link
 RUN ln -sf /stable-diffusion-webui-container/stable_diffusion_output /stable-diffusion-webui-container/stable-diffusion-webui/output
-RUN ln -sf /stable-diffusion-webui-container/machine_learning_models /stable-diffusion-webui-container/stable-diffusion-webui/models/SHARED
+RUN /bin/bash /stable-diffusion-webui-container/link_shared_model_folders.sh
 
 # Setting up stable-diffusion-webui
 #RUN cd stable-diffusion-webui && /bin/bash webui.sh
