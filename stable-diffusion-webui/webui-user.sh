@@ -26,7 +26,7 @@ export venv_dir="/stable-diffusion-webui-container/venv"
 #export LAUNCH_SCRIPT="launch.py"
 
 # install command for torch
-export TORCH_COMMAND="pip install torchvision==0.14.1 torchaudio==0.13.1 torch==1.13.1+cu117 --extra-index-url https://download.pytorch.org/whl/cu117"
+export TORCH_COMMAND="pip install --no-cache-dir torchvision==0.14.1 torchaudio==0.13.1 torch==1.13.1+cu117 --extra-index-url https://download.pytorch.org/whl/cu117"
 
 # Requirements file to use for stable-diffusion-webui
 #export REQS_FILE="requirements_versions.txt"
