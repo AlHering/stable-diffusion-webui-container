@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y apt-utils \
         software-properties-common \
         make build-essential wget curl git nano ffmpeg libsm6 libxext6 \
         p7zip-full p7zip-rar \
-        python3-pip python3-venv
+        python3-pip python3-venv && apt-get clean -y
 
 # Create venv
 RUN if [ ! -d "venv" ]; \
