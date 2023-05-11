@@ -37,3 +37,6 @@ RUN ln -sf /stable-diffusion-webui-container/stable_diffusion_output /stable-dif
 
 # Setting up stable-diffusion-webui
 RUN export COMMANDLINE_ARGS="--allow-code --exit" && cd /stable-diffusion-webui-container/stable-diffusion-webui && /bin/bash webui.sh
+
+# Command for starting webui
+CMD ["/bin/bash", "run_webui.sh"]
