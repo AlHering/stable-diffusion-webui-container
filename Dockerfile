@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.7.0-base-ubuntu20.04
+FROM nvidia/cuda:11.7.0-devel-ubuntu20.04
 ENV PYTHONUNBUFFERED 1
 
 # Setting up basic repo 
@@ -15,14 +15,12 @@ ENV RUNNING_IN_DOCKER True
 COPY . .
 
 # Install prerequisits
-RUN apt-get update
-RUN apt-get install -y apt-utils
-RUN apt-get install -y software-properties-common
-RUN apt-get install -y make build-essential wget curl git nano ffmpeg libsm6 libxext6
-RUN apt-get install -y p7zip-full p7zip-rar
-
-# Install Python
-RUN apt-get install -y python3-pip python3-venv
+RUN apt-get update && apt-get install -y apt-utils \
+        software-properties-common \
+        make build-essential wget curl git nano ffmpeg libsm6 libxext6 \
+        p7zip-full p7zip-rar \
+        python3-pip python3-venv \
+        pkg-config libcairo2-dev libjpeg-dev libgif-dev && apt-get clean -y
 
 # Create venv
 RUN if [ ! -d "venv" ]; \
@@ -34,12 +32,8 @@ fi
 ENV PORT 7860
 EXPOSE $PORT
 
-# Setup output link
-RUN ln -sf /stable-diffusion-webui-container/stable_diffusion_output /stable-diffusion-webui-container/stable-diffusion-webui/output
-RUN ln -sf /stable-diffusion-webui-container/machine_learning_models /stable-diffusion-webui-container/stable-diffusion-webui/models/SHARED
+# Setup links
+RUN ln -sf /stable-diffusion-webui-container/stable_diffusion_output /stable-diffusion-webui-container/stable-diffusion-webui/output && /bin/bash /stable-diffusion-webui-container/link_shared_model_folders.sh
 
 # Setting up stable-diffusion-webui
-#RUN cd stable-diffusion-webui && /bin/bash webui.sh
-
-# Start stable-diffusion-webui
-CMD ["cd", "stable-diffusion-webui", "&&"  "/bin/bash", "webui.sh"]
+RUN export COMMANDLINE_ARGS="--allow-code --exit" && cd /stable-diffusion-webui-container/stable-diffusion-webui && /bin/bash webui.sh
