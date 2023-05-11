@@ -1,4 +1,10 @@
 #!/bin/bash
+#################################################
+# Access point for linking model folders. Folder linking
+# can be used at building-stage. Note that the
+# folder and model structure follows own preferences.
+#################################################
+
 # stable diffusion model linker v0.4
 if [ -z $1 ]
 then 
