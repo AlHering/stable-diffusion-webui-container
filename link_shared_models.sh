@@ -1,4 +1,9 @@
 #!/bin/bash
+#################################################
+# Access point for linking model. Note that the
+# folder and model structure follows own preferences.
+#################################################
+
 # stable diffusion model linker v0.4
 if [ -z $1 ]
 then 
