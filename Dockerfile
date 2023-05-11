@@ -35,6 +35,9 @@ EXPOSE $PORT
 # Setup links
 RUN ln -sf /stable-diffusion-webui-container/stable_diffusion_output /stable-diffusion-webui-container/stable-diffusion-webui/output && /bin/bash /stable-diffusion-webui-container/link_shared_model_folders.sh
 
+# Install extensions
+RUN python3 /stable-diffusion-webui-container/install_extensions.py
+
 # Setting up stable-diffusion-webui
 RUN export COMMANDLINE_ARGS="--allow-code --exit" && cd /stable-diffusion-webui-container/stable-diffusion-webui && /bin/bash webui.sh
 
