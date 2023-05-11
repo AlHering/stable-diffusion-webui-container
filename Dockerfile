@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y apt-utils \
         software-properties-common \
         make build-essential wget curl git nano ffmpeg libsm6 libxext6 \
         p7zip-full p7zip-rar \
-        python3-pip python3-venv && apt-get clean -y
+        python3-pip python3-venv \
+        pkg-config libcairo2-dev libjpeg-dev libgif-dev && apt-get clean -y
 
 # Create venv
 RUN if [ ! -d "venv" ]; \
@@ -35,7 +36,4 @@ EXPOSE $PORT
 RUN ln -sf /stable-diffusion-webui-container/stable_diffusion_output /stable-diffusion-webui-container/stable-diffusion-webui/output && /bin/bash /stable-diffusion-webui-container/link_shared_model_folders.sh
 
 # Setting up stable-diffusion-webui
-#RUN cd stable-diffusion-webui && /bin/bash webui.sh
-
-# Start stable-diffusion-webui
-CMD ["cd", "stable-diffusion-webui", "&&"  "/bin/bash", "webui.sh"]
+RUN export COMMANDLINE_ARGS="--allow-code --exit" && cd /stable-diffusion-webui-container/stable-diffusion-webui && /bin/bash webui.sh
