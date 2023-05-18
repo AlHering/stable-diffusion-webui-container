@@ -32,7 +32,7 @@ extensions = [
     ("https://github.com/Coyote-A/ultimate-upscale-for-automatic1111.git", "d002fdfc", "ultimate-upscale-for-automatic1111")
 ]
 
-base_cd_command = "cd /stable-diffusion-webui-container/stable-diffusion-webui/extensions")
+base_cd_command = "cd /stable-diffusion-webui-container/stable-diffusion-webui/extensions"
 for extension in extensions:
     print(f"Handling {extension[2]}")
     os.system(f"{base_cd_command} && git clone {extension[0]} && cd {extension[2]} && git checkout {extension[1]}")
