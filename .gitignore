@@ -11,9 +11,7 @@ __pycache__
 /models/**/*
 /GFPGANv1.3.pth
 /gfpgan/weights/*.pth
-/ui-config.json
 /outputs
-/config.json
 /log
 /webui.settings.bat
 /embeddings
@@ -29,7 +27,6 @@ notification.mp3
 /SwinIR
 /textual_inversion
 .vscode
-/extensions
 /test/stdout.txt
 /test/stderr.txt
 /cache.json
