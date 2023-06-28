@@ -22,6 +22,7 @@ realesrgan
 requests
 resize-right
 
+xformers
 safetensors
 scikit-image>=0.19
 timm
