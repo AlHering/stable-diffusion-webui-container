@@ -16,7 +16,7 @@ export GIT="git"
 venv_dir="/stable-diffusion-webui-container/venv"
 
 # install command for torch
-export TORCH_COMMAND="pip install --no-cache-dir torchvision==0.14.1 torchaudio==0.13.1 torch==1.13.1+cu117 xformers --extra-index-url https://download.pytorch.org/whl/cu117"
+export TORCH_COMMAND="pip install --no-cache-dir torchvision==0.14.1 torchaudio==0.13.1 torch==2.0.1+cu117 xformers --extra-index-url https://download.pytorch.org/whl/cu117"
 
 if [[ -z "${LAUNCH_SCRIPT}" ]]
 then
@@ -50,7 +50,8 @@ printf "\e[1m\e[34mTested on Debian 11 (Bullseye)\e[0m"
 printf "\n%s\n" "${delimiter}"
 
 # Do not run as root
-if [[ $(id -u) -eq 0 && can_run_as_root -eq 0 && ! ${RUNNING_IN_DOCKER} ]]then
+if [[ $(id -u) -eq 0 && can_run_as_root -eq 0 && ! ${RUNNING_IN_DOCKER} ]]
+then
     printf "\n%s\n" "${delimiter}"
     printf "\e[1m\e[31mERROR: This script must not be launched as root, aborting...\e[0m"
     printf "\n%s\n" "${delimiter}"
