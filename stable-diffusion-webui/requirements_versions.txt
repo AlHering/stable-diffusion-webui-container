@@ -24,7 +24,6 @@ safetensors==0.3.1
 scikit-image==0.20.0
 timm==0.6.7
 tomesd==0.1.2
-xformers
 torch
 torchdiffeq==0.2.3
 torchsde==0.2.5

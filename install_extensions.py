@@ -38,4 +38,3 @@ for extension in extensions:
     os.system(f"{base_cd_command} && git clone {extension[0]} && cd {extension[2]} && git checkout {extension[1]}")
 
 print("Finished adding extensions.")
-
