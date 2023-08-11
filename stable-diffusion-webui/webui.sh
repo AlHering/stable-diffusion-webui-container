@@ -16,7 +16,7 @@ export GIT="git"
 venv_dir="/stable-diffusion-webui-container/venv"
 
 # install command for torch
-export TORCH_COMMAND="pip install --no-cache-dir torchvision==0.14.1 torchaudio==0.13.1 torch==1.13.1+cu117 --extra-index-url https://download.pytorch.org/whl/cu117"
+export TORCH_COMMAND="pip install --no-cache-dir torchvision==0.14.1 torchaudio==0.13.1 torch==1.13.1+cu117 xformers --extra-index-url https://download.pytorch.org/whl/cu117"
 
 if [[ -z "${LAUNCH_SCRIPT}" ]]
 then
@@ -50,7 +50,7 @@ printf "\e[1m\e[34mTested on Debian 11 (Bullseye)\e[0m"
 printf "\n%s\n" "${delimiter}"
 
 # Do not run as root
-if [[ $(id -u) -eq 0 && can_run_as_root -eq 0 && ! ${RUNNING_IN_DOCKER} ]]
+if [[ $(id -u) -eq 0 && can_run_as_root -eq 0 ]]
 then
     printf "\n%s\n" "${delimiter}"
     printf "\e[1m\e[31mERROR: This script must not be launched as root, aborting...\e[0m"
@@ -99,6 +99,10 @@ case "$gpu_info" in
     ;;
     *"Navi 2"*) export HSA_OVERRIDE_GFX_VERSION=10.3.0
     ;;
+    *"Navi 3"*) [[ -z "${TORCH_COMMAND}" ]] && \
+        export TORCH_COMMAND="pip install --pre torch==2.1.0.dev-20230614+rocm5.5 torchvision==0.16.0.dev-20230614+rocm5.5 --index-url https://download.pytorch.org/whl/nightly/rocm5.5"
+        # Navi 3 needs at least 5.5 which is only on the nightly chain
+    ;;
     *"Renoir"*) export HSA_OVERRIDE_GFX_VERSION=9.0.0
         printf "\n%s\n" "${delimiter}"
         printf "Experimental support for Renoir: make sure to have at least 4GB of VRAM and 10GB of RAM or enable cpu mode: --use-cpu all --no-half"
@@ -126,7 +130,7 @@ do
     fi
 done
 
-if ! "${python_cmd}" -c "import venv" &>/dev/null
+if [[ $use_venv -eq 1 ]] && ! "${python_cmd}" -c "import venv" &>/dev/null
 then
     printf "\n%s\n" "${delimiter}"
     printf "\e[1m\e[31mERROR: python3-venv is not installed, aborting...\e[0m"
@@ -146,7 +150,7 @@ else
     cd "${clone_dir}"/ || { printf "\e[1m\e[31mERROR: Can't cd to %s/%s/, aborting...\e[0m" "${install_dir}" "${clone_dir}"; exit 1; }
 fi
 
-if [[ -z "${VIRTUAL_ENV}" ]];
+if [[ $use_venv -eq 1 ]] && [[ -z "${VIRTUAL_ENV}" ]];
 then
     printf "\n%s\n" "${delimiter}"
     printf "Create and activate python venv"
@@ -169,7 +173,7 @@ then
     fi
 else
     printf "\n%s\n" "${delimiter}"
-    printf "python venv already activate: ${VIRTUAL_ENV}"
+    printf "python venv already activate or run without venv: ${VIRTUAL_ENV}"
     printf "\n%s\n" "${delimiter}"
 fi
 
