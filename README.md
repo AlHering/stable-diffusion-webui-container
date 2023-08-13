@@ -71,7 +71,7 @@ nvidia-docker run  \
 
 Note, that you can also open a terminal by appending `/bin/bash` to the command above. You will get to a terminal inside the running container and execute the bash script for linking the machine learning model folders. Afterwards you can start the webui manually with `bash run_webui.sh`.
 
-Note, that you can also directly mount your model or output folders to the targets `stable-diffusion-webui-container/stable-diffusion-webui/models`, `stable-diffusion-webui-container/stable-diffusion-webui/models`.
+Note, that you can also directly mount your model or output folders to the targets `stable-diffusion-webui-container/stable-diffusion-webui/models`, `stable-diffusion-webui-container/stable-diffusion-webui/output`.
 
 ### 6. (Re)run the container
 If you exit the container and it is stopped, you can use 
