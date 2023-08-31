@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y apt-utils \
     make build-essential wget curl git nano ffmpeg libsm6 libxext6 \
     p7zip-full p7zip-rar \
     python3-pip python3-venv \
-    libgoogle-perftools4 libtcmalloc-minimal4 \
+    libgoogle-perftools4 libtcmalloc-minimal4 libgoogle-perftools-dev \
     pkg-config libcairo2-dev libjpeg-dev libgif-dev && apt-get clean -y
 
 # Create venv
