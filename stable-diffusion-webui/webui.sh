@@ -23,6 +23,10 @@ then
     LAUNCH_SCRIPT="launch.py"
 fi
 
+# fix memory leak
+export LD_PRELOAD=libtcmalloc.so
+
+
 # this script cannot be run as root by default
 can_run_as_root=0
 
