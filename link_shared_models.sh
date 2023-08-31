@@ -63,3 +63,5 @@ ln -s ${central_sd_model_dir}/LYCORIS/* ${webui_model_dir}/LyCORIS
 #ln -s ${central_sd_model_dir}/WILDCARDS/ ${webui_model_dir}/
 #ln -s ${central_sd_model_dir}/BSRGAN/ ${webui_model_dir}/
 
+find $webui_model_dir -xtype l -print -delete
+
