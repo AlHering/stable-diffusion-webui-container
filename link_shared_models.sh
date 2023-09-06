@@ -54,10 +54,10 @@ ln -sf ${central_sd_model_dir}/POSES/* ${webui_model_dir}/Poses
 if [ ! -d "${webui_model_dir}/../embeddings" ]
    then
         ln -sf ${central_sd_model_dir}/EMBEDDINGS/* ${webui_model_dir}/embeddings
-        ln -sf ${central_sd_model_dir}/TEXTUAL_INVERSION/* ${webui_model_dir}/embeddings
+        ln -sf ${central_sd_model_dir}/TEXTUAL_INVERSION ${webui_model_dir}/embeddings
    else
         ln -sf ${central_sd_model_dir}/EMBEDDINGS/* ${webui_model_dir}/../embeddings
-        ln -sf ${central_sd_model_dir}/TEXTUAL_INVERSION/* ${webui_model_dir}/../embeddings
+        ln -sf ${central_sd_model_dir}/TEXTUAL_INVERSION ${webui_model_dir}/../embeddings
 fi
 ln -s ${central_sd_model_dir}/LYCORIS/* ${webui_model_dir}/LyCORIS
 #ln -s ${central_sd_model_dir}/WILDCARDS/ ${webui_model_dir}/
