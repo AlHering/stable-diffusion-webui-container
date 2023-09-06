@@ -23,7 +23,7 @@ fi
 
 
 # create folders
-MODEL_FOLDERS=("Stable-diffusion" "VAE" "Lora" "GFPGAN" "ESRGAN" "BLIP" "deepbooru" "torch_deepdanbooru" "Codeformer" "RealESRGAN" "ControlNet" "karlo" "hypernetworks" "LDSR" "SwinIR" "Poses" "embeddings")
+MODEL_FOLDERS=("Stable-diffusion" "VAE" "Lora" "GFPGAN" "ESRGAN" "BLIP" "deepbooru" "torch_deepdanbooru" "Codeformer" "RealESRGAN" "ControlNet" "karlo" "hypernetworks" "LDSR" "SwinIR" "Poses" "embeddings" "LyCORIS")
 echo $MODEL_FOLDERS
 for FOLDER in "${MODEL_FOLDERS[@]}"
 do  
