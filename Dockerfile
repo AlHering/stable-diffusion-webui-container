@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y apt-utils \
 RUN if [ ! -d "venv" ]; \
     then \
     python3 -m venv venv; \
-    fi 
+    fi
 
 # Access port
 ENV PORT 7860
