@@ -15,8 +15,8 @@ ENV RUNNING_IN_DOCKER True
 COPY . .
 
 # Install prerequisits
-RUN apt add-repository -y ppa:deadsnakes/ppa apt-get update && apt-get install -y apt-utils \
-    software-properties-common \
+RUN apt-get update && apt-get install -y apt-utils software-properties-common
+RUN apt-add-repository -y ppa:deadsnakes/ppa && apt-get update && apt-get install -y \
     make build-essential wget curl git nano ffmpeg libsm6 libxext6 \
     p7zip-full p7zip-rar \
     git git-lfs\
