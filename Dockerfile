@@ -27,7 +27,8 @@ RUN apt-get update && apt-get install -y apt-utils \
 RUN if [ ! -d "venv" ]; \
     then \
     python3 -m venv venv; \
-    fi
+    fi 
+RUN source /stable-diffusion-webui-container/venv/bin/activate && pip install --no-cache-dir -r /stable-diffusion-webui-container/stable-diffusion-webui/requirements.txt
 
 # Access port
 ENV PORT 7860
