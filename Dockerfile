@@ -21,6 +21,7 @@ RUN apt-add-repository -y ppa:deadsnakes/ppa && apt-get update && apt-get instal
     p7zip-full p7zip-rar \
     git git-lfs\
     python3.10-full python-is-python3 \
+    libgoogle-perftools4 libtcmalloc-minimal4 libgoogle-perftools-dev \
     pkg-config libcairo2-dev libjpeg-dev libgif-dev \
     && apt-get clean -y && git lfs install
 
