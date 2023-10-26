@@ -44,8 +44,5 @@ RUN git config --global http.postBuffer 1048576000 && python3 /stable-diffusion-
 # Setting up stable-diffusion-webui
 RUN export COMMANDLINE_ARGS="--allow-code --exit" && cd /stable-diffusion-webui-container/stable-diffusion-webui && first_launch=1 bash webui.sh
 
-# Install extensions
-RUN git config --global http.postBuffer 1048576000 && python3 /stable-diffusion-webui-container/install_extensions.py
-
 # Command for starting webui
 CMD ["/bin/bash", "run_webui.sh"]
