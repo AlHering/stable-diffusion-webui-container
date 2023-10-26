@@ -15,20 +15,21 @@ ENV RUNNING_IN_DOCKER True
 COPY . .
 
 # Install prerequisits
-RUN apt-get update && apt-get install -y apt-utils \
+RUN apt add-repository -y ppa:deadsnakes/ppa apt-get update && apt-get install -y apt-utils \
     software-properties-common \
     make build-essential wget curl git nano ffmpeg libsm6 libxext6 \
     p7zip-full p7zip-rar \
-    python3-pip python3-venv \
-    libgoogle-perftools4 libtcmalloc-minimal4 libgoogle-perftools-dev \
-    pkg-config libcairo2-dev libjpeg-dev libgif-dev && apt-get clean -y
+    git git-lfs\
+    python3.10-full python-is-python3 \
+    pkg-config libcairo2-dev libjpeg-dev libgif-dev \
+    && apt-get clean -y && git lfs install
 
 # Create venv
 RUN if [ ! -d "venv" ]; \
     then \
-    python3 -m venv venv; \
+    python3.10 -m venv venv; \
     fi 
-RUN source /stable-diffusion-webui-container/venv/bin/activate && pip install --no-cache-dir -r /stable-diffusion-webui-container/stable-diffusion-webui/requirements.txt
+RUN . /stable-diffusion-webui-container/venv/bin/activate && pip install --no-cache-dir torchvision==0.15.2+cu117 torchaudio==2.0.2+cu117 torch==2.0.1+cu117 xformers==0.0.20 --extra-index-url https://download.pytorch.org/whl/cu117 && pip install --no-cache-dir -r /stable-diffusion-webui-container/stable-diffusion-webui/requirements.txt
 
 # Access port
 ENV PORT 7860
