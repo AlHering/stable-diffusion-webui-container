@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Set defaults
+use_venv=1
+
 # Install directory without trailing slash
 install_dir="/stable-diffusion-webui-container"
 
@@ -22,10 +24,6 @@ if [[ -z "${LAUNCH_SCRIPT}" ]]
 then
     LAUNCH_SCRIPT="launch.py"
 fi
-
-# fix memory leak
-export LD_PRELOAD=libtcmalloc.so
-
 
 # this script cannot be run as root by default
 can_run_as_root=0
@@ -104,8 +102,9 @@ case "$gpu_info" in
     *"Navi 2"*) export HSA_OVERRIDE_GFX_VERSION=10.3.0
     ;;
     *"Navi 3"*) [[ -z "${TORCH_COMMAND}" ]] && \
-        export TORCH_COMMAND="pip install --pre torch==2.1.0.dev-20230614+rocm5.5 torchvision==0.16.0.dev-20230614+rocm5.5 --index-url https://download.pytorch.org/whl/nightly/rocm5.5"
-        # Navi 3 needs at least 5.5 which is only on the nightly chain
+         export TORCH_COMMAND="pip install --pre torch torchvision --index-url https://download.pytorch.org/whl/nightly/rocm5.6"
+        # Navi 3 needs at least 5.5 which is only on the nightly chain, previous versions are no longer online (torch==2.1.0.dev-20230614+rocm5.5 torchvision==0.16.0.dev-20230614+rocm5.5 torchaudio==2.1.0.dev-20230614+rocm5.5)
+        # so switch to nightly rocm5.6 without explicit versions this time
     ;;
     *"Renoir"*) export HSA_OVERRIDE_GFX_VERSION=9.0.0
         printf "\n%s\n" "${delimiter}"
@@ -208,7 +207,7 @@ while [[ "$KEEP_GOING" -eq "1" ]]; do
         printf "Launching launch.py..."
         printf "\n%s\n" "${delimiter}"
         prepare_tcmalloc
-        "${python_cmd}" "${LAUNCH_SCRIPT}" "$@"
+        "${python_cmd}" -u "${LAUNCH_SCRIPT}" "$@"
     fi
 
     if [[ ! -f tmp/restart ]]; then
