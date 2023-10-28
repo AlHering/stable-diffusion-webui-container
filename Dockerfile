@@ -29,8 +29,7 @@ RUN apt-add-repository -y ppa:deadsnakes/ppa && apt-get update && apt-get instal
 RUN if [ ! -d "venv" ]; \
     then \
     python3.10 -m venv venv; \
-    fi 
-RUN . /stable-diffusion-webui-container/venv/bin/activate && pip install --no-cache-dir torchvision==0.15.2+cu117 torchaudio==2.0.2+cu117 torch==2.0.1+cu117 xformers==0.0.20 --extra-index-url https://download.pytorch.org/whl/cu117 && pip install --no-cache-dir -r /stable-diffusion-webui-container/stable-diffusion-webui/requirements.txt
+    fi
 
 # Access port
 ENV PORT 7860
@@ -43,7 +42,7 @@ RUN ln -sf /stable-diffusion-webui-container/stable_diffusion_output /stable-dif
 RUN git config --global http.postBuffer 1048576000 && python3 /stable-diffusion-webui-container/install_extensions.py
 
 # Setting up stable-diffusion-webui
-RUN export COMMANDLINE_ARGS="--allow-code --exit" && cd /stable-diffusion-webui-container/stable-diffusion-webui && first_launch=1 bash webui.sh
+RUN bash /stable-diffusion-webui-container/install_webui.sh
 
 # Command for starting webui
 CMD ["/bin/bash", "run_webui.sh"]
