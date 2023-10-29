@@ -11,7 +11,6 @@ extensions = [
     ("https://github.com/KohakuBlueleaf/a1111-sd-webui-lycoris.git", "df9c0093", "a1111-sd-webui-lycoris"),
     ("https://github.com/DominikDoom/a1111-sd-webui-tagcomplete.git", "a7233a59", "a1111-sd-webui-tagcomplete"),
 #    ("https://github.com/richrobber2/canvas-zoom.git", "44c13878", "canvas-zoom"),
-#    ("https://github.com/pharmapsychotic/clip-interrogator-ext.git", "c0bf9005", "clip-interrogator-ext"),
     ("https://github.com/pharmapsychotic/clip-interrogator-ext.git", "0f1a4591", "clip-interrogator-ext"),
     ("https://github.com/s9roll7/ebsynth_utility.git", "8ff9fbf2", "ebsynth_utility"),
     ("https://github.com/LonicaMewinsky/gif2gif.git", "5121851e", "gif2gif"),
