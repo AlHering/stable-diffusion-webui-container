@@ -12,6 +12,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ADD ./ stable-diffusion-webui-container/
 WORKDIR /stable-diffusion-webui-container
 ENV RUNNING_IN_DOCKER True
+ENV STRICT_EXTENSION_VERSIONING False
 COPY . .
 
 # Install prerequisits
