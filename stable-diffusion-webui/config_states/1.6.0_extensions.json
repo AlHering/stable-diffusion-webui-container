@@ -29,6 +29,17 @@
             "branch": "main",
             "have_info_from_repo": false
         },
+        "adetailer": {
+            "name": "adetailer",
+            "path": "/stable-diffusion-webui-container/stable-diffusion-webui/extensions/adetailer",
+            "enabled": true,
+            "is_builtin": false,
+            "remote": null,
+            "commit_hash": "",
+            "commit_date": 1697358677,
+            "branch": null,
+            "have_info_from_repo": false
+        },
         "clip-interrogator-ext": {
             "name": "clip-interrogator-ext",
             "path": "/stable-diffusion-webui-container/stable-diffusion-webui/extensions/clip-interrogator-ext",
@@ -170,6 +181,17 @@
             "commit_hash": "93192ee1230733f6faefc8e7112251c1e1139980",
             "commit_date": 1698577861,
             "branch": "main",
+            "have_info_from_repo": false
+        },
+        "sd-webui-llul": {
+            "name": "sd-webui-llul",
+            "path": "/stable-diffusion-webui-container/stable-diffusion-webui/extensions/sd-webui-llul",
+            "enabled": true,
+            "is_builtin": false,
+            "remote": null,
+            "commit_hash": "",
+            "commit_date": 1683216874,
+            "branch": null,
             "have_info_from_repo": false
         },
         "sd-webui-model-converter": {
