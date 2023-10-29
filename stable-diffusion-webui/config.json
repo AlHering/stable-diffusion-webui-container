@@ -157,7 +157,6 @@
         "gif2gif",
         "openpose-editor",
         "posex",
-        "sd-canvas-editor",
         "sd-webui-3d-open-pose-editor",
         "sd-webui-model-converter",
         "sd_dreambooth_extension",
@@ -210,5 +209,23 @@
     "image_browser_pages_perload": 20.0,
     "image_browser_use_thumbnail": false,
     "image_browser_thumbnail_size": 200.0,
-    "image_browser_swipe": false
+    "image_browser_swipe": false,
+    "sd_vae_overrides_per_model_preferences": false,
+    "quicksettings_list": [
+        "sd_model_checkpoint",
+        "CLIP_stop_at_last_layers",
+        "sd_vae"
+    ],
+    "ui_reorder_list": [
+        "inpaint",
+        "sampler",
+        "checkboxes",
+        "hires_fix",
+        "dimensions",
+        "cfg",
+        "seed",
+        "batch",
+        "override_settings",
+        "scripts"
+    ]
 }
