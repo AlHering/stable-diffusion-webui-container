@@ -47,7 +47,7 @@ base_cd_command = "cd /stable-diffusion-webui-container/stable-diffusion-webui/e
 for extension in extensions:
     print(f"Handling {extension[2]}")
     cmd = f"{base_cd_command} && git clone {extension[0]} && cd {extension[2]}"
-    if os.environ.get("STRICT_EXTENSION_VERSIONING"):
+    if os.environ.get("STRICT_EXTENSION_VERSIONING", "False") == "True":
         cmd += f" && git checkout {extension[1]}"
     os.system(cmd)
 
