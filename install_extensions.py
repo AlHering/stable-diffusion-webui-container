@@ -10,12 +10,14 @@ import os
 extensions = [
     ("https://github.com/KohakuBlueleaf/a1111-sd-webui-lycoris.git", "df9c0093", "a1111-sd-webui-lycoris"),
     ("https://github.com/DominikDoom/a1111-sd-webui-tagcomplete.git", "a7233a59", "a1111-sd-webui-tagcomplete"),
+    ("https://github.com/Bing-su/adetailer.git", "887155c8", "adetailer"),
 #    ("https://github.com/richrobber2/canvas-zoom.git", "44c13878", "canvas-zoom"),
     ("https://github.com/pharmapsychotic/clip-interrogator-ext.git", "0f1a4591", "clip-interrogator-ext"),
     ("https://github.com/s9roll7/ebsynth_utility.git", "8ff9fbf2", "ebsynth_utility"),
     ("https://github.com/LonicaMewinsky/gif2gif.git", "5121851e", "gif2gif"),
     ("https://github.com/fkunn1326/openpose-editor.git", "c9357715", "openpose-editor"),
     ("https://github.com/hnmr293/posex.git", "292f92d5", "posex"),
+    ("https://github.com/adieyal/sd-dynamic-prompts.git", "39c06b30", "sd-dynamic-prompts"),
     ("https://github.com/vladmandic/sd-extension-system-info.git", "1841cf76", "sd-extension-system-info"),
 #    ("https://github.com/jtydhr88/sd-canvas-editor.git", "e89e0682", "sd-canvas-editor"),
     ("https://github.com/nonnonstop/sd-webui-3d-open-pose-editor.git", "f2d5aac5", "sd-webui-3d-open-pose-editor"),
@@ -24,6 +26,7 @@ extensions = [
     ("https://github.com/alemelis/sd-webui-ar.git", "3973c86a", "sd-webui-ar"),
     ("https://github.com/thomasasfk/sd-webui-aspect-ratio-helper.git", "99fcf9b0", "sd-webui-aspect-ratio-helper"),
     ("https://github.com/Mikubill/sd-webui-controlnet.git", "f2aafcf2", "sd-webui-controlnet"),
+    ("https://github.com/hnmr293/sd-webui-llul.git", "aa47b3ee", "sd-webui-llul"),
     ("https://github.com/zanllp/sd-webui-infinite-image-browsing.git", "93192ee1", "sd-webui-infinite-image-browsing"),
     ("https://github.com/Akegarasu/sd-webui-model-converter.git", "b1f10148", "sd-webui-model-converter"),
     ("https://github.com/huchenlei/sd-webui-openpose-editor.git", "be6f54fa", "sd-webui-openpose-editor"),
@@ -36,6 +39,7 @@ extensions = [
     ("https://github.com/AUTOMATIC1111/stable-diffusion-webui-rembg.git", "3d9eedbb", "stable-diffusion-webui-rembg"),
     ("https://github.com/ilian6806/stable-diffusion-webui-state.git", "f2bb3809", "stable-diffusion-webui-state"),
     ("https://github.com/ashen-sensored/stable-diffusion-webui-two-shot.git", "6b55dd52", "stable-diffusion-webui-two-shot"),
+    ("https://github.com/AUTOMATIC1111/stable-diffusion-webui-wildcards.git", "c7d49e18", "stable-diffusion-webui-wildcards"),
     ("https://github.com/Coyote-A/ultimate-upscale-for-automatic1111.git", "728ffcec", "ultimate-upscale-for-automatic1111")
 ]
 
